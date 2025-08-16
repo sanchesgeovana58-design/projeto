@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "nomeVaga": "Desenvolvedor Front-end",
+    "descricaoVaga": "Desenvolvimento de interfaces em Angular",
+    "requisitos": "HTML, CSS, Angular"
+  },
+  {
+    "id": 2,
+    "nomeVaga": "Analista de QA",
+    "descricaoVaga": "Testes de software",
+    "requisitos": "Testes automatizados, atenção a detalhes"
+  }
+]
