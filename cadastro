@@ -1,0 +1,28 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-cadastro',
+  templateUrl: './cadastro.component.html',
+  styleUrls: ['./cadastro.component.css']
+})
+export class CadastroComponent {
+  nomeVaga: string = '';
+  descricaoVaga: string = '';
+  requisitos: string = '';
+
+  cadastrar() {
+    let vagas = JSON.parse(localStorage.getItem('vagas') || '[]');
+    const novaVaga = {
+      id: vagas.length + 1,
+      nomeVaga: this.nomeVaga,
+      descricaoVaga: this.descricaoVaga,
+      requisitos: this.requisitos
+    };
+    vagas.push(novaVaga);
+    localStorage.setItem('vagas', JSON.stringify(vagas));
+    alert('Vaga cadastrada com sucesso!');
+    this.nomeVaga = '';
+    this.descricaoVaga = '';
+    this.requisitos = '';
+  }
+}
