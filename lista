@@ -1,0 +1,28 @@
+import { Component, OnInit } from '@angular/core';
+
+interface Vaga {
+  id: number;
+  nomeVaga: string;
+  descricaoVaga: string;
+  requisitos: string;
+}
+
+@Component({
+  selector: 'app-lista',
+  templateUrl: './lista.component.html',
+  styleUrls: ['./lista.component.css']
+})
+export class ListaComponent implements OnInit {
+  vagas: Vaga[] = [];
+
+  ngOnInit(): void {
+    this.vagas = JSON.parse(localStorage.getItem('vagas') || '[]');
+  }
+
+  excluirVaga(id: number) {
+    if (confirm('Deseja realmente excluir esta vaga?')) {
+      this.vagas = this.vagas.filter(v => v.id !== id);
+      localStorage.setItem('vagas', JSON.stringify(this.vagas));
+    }
+  }
+}
